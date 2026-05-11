@@ -19,7 +19,7 @@ public class Koneksi {
     
     // 3. Tentukan parameter koneksi: URL, Username, Password
     // Format URL: jdbc:mysql://host:port/nama_database
-    private static final String URL = "jdbc:mysql://localhost:3306/db_crud";
+    private static final String URL = "jdbc:mysql://localhost:3306/db_lapangan";
     private static final String USER = "root"; // Ganti dengan user Anda
     private static final String PASSWORD = ""; // Ganti dengan password Anda
     
