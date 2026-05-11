@@ -1,130 +1,132 @@
--- =========================================
--- DATABASE : db_lapangan
--- =========================================
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: May 11, 2026 at 07:59 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
-CREATE DATABASE IF NOT EXISTS db_lapangan
-CHARACTER SET utf8mb4
-COLLATE utf8mb4_unicode_ci;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-USE db_lapangan;
 
--- =========================================
--- TABLE : users
--- =========================================
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-DROP TABLE IF EXISTS booking;
-DROP TABLE IF EXISTS lapangan;
-DROP TABLE IF EXISTS users;
+--
+-- Database: `db_lapangan`
+--
 
-CREATE TABLE users (
-    id_user INT AUTO_INCREMENT PRIMARY KEY,
-    nama VARCHAR(100) NOT NULL,
-    no_hp VARCHAR(20),
-    alamat TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB;
+-- --------------------------------------------------------
 
--- =========================================
--- TABLE : lapangan
--- =========================================
+--
+-- Table structure for table `tbl_booking`
+--
 
-CREATE TABLE lapangan (
-    id_lapangan INT AUTO_INCREMENT PRIMARY KEY,
-    nama_lapangan VARCHAR(100) NOT NULL,
-    jenis VARCHAR(50) NOT NULL,
-    harga_per_jam INT NOT NULL,
-    status ENUM('Aktif', 'Nonaktif') DEFAULT 'Aktif',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB;
+CREATE TABLE `tbl_booking` (
+  `id_booking` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_lapangan` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `jam_mulai` time NOT NULL,
+  `durasi` int(11) NOT NULL,
+  `total_harga` int(11) NOT NULL,
+  `waktu_booking` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- =========================================
--- TABLE : booking
--- =========================================
+-- --------------------------------------------------------
 
-CREATE TABLE booking (
-    id_booking INT AUTO_INCREMENT PRIMARY KEY,
+--
+-- Table structure for table `tbl_lapangan`
+--
 
-    id_user INT NOT NULL,
-    id_lapangan INT NOT NULL,
+CREATE TABLE `tbl_lapangan` (
+  `id_lapangan` int(11) NOT NULL,
+  `nama_lapangan` varchar(100) NOT NULL,
+  `lokasi` text NOT NULL,
+  `jenis` varchar(50) NOT NULL,
+  `harga_per_jam` int(11) NOT NULL,
+  `STATUS` enum('Booked','Available') NOT NULL DEFAULT 'Available'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-    tanggal DATE NOT NULL,
-    jam_mulai TIME NOT NULL,
+-- --------------------------------------------------------
 
-    durasi INT NOT NULL,
-    total_harga INT NOT NULL,
+--
+-- Table structure for table `tbl_pengguna`
+--
 
-    status ENUM('Booked', 'Selesai', 'Batal')
-    DEFAULT 'Booked',
+CREATE TABLE `tbl_pengguna` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `no_hp` varchar(20) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+--
+-- Indexes for dumped tables
+--
 
-    CONSTRAINT fk_booking_user
-        FOREIGN KEY (id_user)
-        REFERENCES users(id_user)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT,
+--
+-- Indexes for table `tbl_booking`
+--
+ALTER TABLE `tbl_booking`
+  ADD PRIMARY KEY (`id_booking`),
+  ADD KEY `fk_booking_user` (`id_user`),
+  ADD KEY `fk_booking_lapangan` (`id_lapangan`);
 
-    CONSTRAINT fk_booking_lapangan
-        FOREIGN KEY (id_lapangan)
-        REFERENCES lapangan(id_lapangan)
-        ON UPDATE CASCADE
-        ON DELETE RESTRICT
-) ENGINE=InnoDB;
+--
+-- Indexes for table `tbl_lapangan`
+--
+ALTER TABLE `tbl_lapangan`
+  ADD PRIMARY KEY (`id_lapangan`);
 
--- =========================================
--- DATA AWAL USERS
--- =========================================
+--
+-- Indexes for table `tbl_pengguna`
+--
+ALTER TABLE `tbl_pengguna`
+  ADD PRIMARY KEY (`id_user`);
 
-INSERT INTO users (nama, no_hp, alamat) VALUES
-('Andi Saputra', '081234567890', 'Jakarta'),
-('Budi Santoso', '082345678901', 'Bekasi'),
-('Citra Lestari', '083333333333', 'Depok');
+--
+-- AUTO_INCREMENT for dumped tables
+--
 
--- =========================================
--- DATA AWAL LAPANGAN
--- =========================================
+--
+-- AUTO_INCREMENT for table `tbl_booking`
+--
+ALTER TABLE `tbl_booking`
+  MODIFY `id_booking` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
-INSERT INTO lapangan
-(nama_lapangan, jenis, harga_per_jam, status)
-VALUES
-('Lapangan A', 'Futsal', 100000, 'Aktif'),
-('Lapangan B', 'Badminton', 50000, 'Aktif'),
-('Lapangan C', 'Basket', 120000, 'Aktif'),
-('Lapangan D', 'Voli', 80000, 'Aktif');
+--
+-- AUTO_INCREMENT for table `tbl_lapangan`
+--
+ALTER TABLE `tbl_lapangan`
+  MODIFY `id_lapangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
--- =========================================
--- DATA AWAL BOOKING
--- =========================================
+--
+-- AUTO_INCREMENT for table `tbl_pengguna`
+--
+ALTER TABLE `tbl_pengguna`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
-INSERT INTO booking
-(id_user, id_lapangan, tanggal, jam_mulai,
-durasi, total_harga, status)
-VALUES
-(1, 1, '2026-05-10', '10:00:00', 2, 200000, 'Booked'),
-(2, 2, '2026-05-10', '13:00:00', 1, 50000, 'Selesai');
+--
+-- Constraints for dumped tables
+--
 
--- =========================================
--- VIEW LAPORAN BOOKING
--- =========================================
+--
+-- Constraints for table `tbl_booking`
+--
+ALTER TABLE `tbl_booking`
+  ADD CONSTRAINT `fk_booking_lapangan` FOREIGN KEY (`id_lapangan`) REFERENCES `tbl_lapangan` (`id_lapangan`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_booking_user` FOREIGN KEY (`id_user`) REFERENCES `tbl_pengguna` (`id_user`) ON UPDATE CASCADE;
+COMMIT;
 
-CREATE OR REPLACE VIEW v_booking_lengkap AS
-SELECT
-    b.id_booking,
-    u.nama AS nama_user,
-    u.no_hp,
-    l.nama_lapangan,
-    l.jenis,
-    b.tanggal,
-    b.jam_mulai,
-    b.durasi,
-    b.total_harga,
-    b.status
-FROM booking b
-JOIN users u
-    ON b.id_user = u.id_user
-JOIN lapangan l
-    ON b.id_lapangan = l.id_lapangan;
-
--- =========================================
--- SELESAI
--- =========================================
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
