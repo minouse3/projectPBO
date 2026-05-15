@@ -62,6 +62,11 @@ public class ViewEditPromo extends javax.swing.JFrame {
 
         buttonSave.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         buttonSave.setText("Save");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 170, 40));
 
         buttonCancel.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -76,12 +81,30 @@ public class ViewEditPromo extends javax.swing.JFrame {
         labelId.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelId.setText("ID");
         getContentPane().add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
+
+        textId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIdActionPerformed(evt);
+            }
+        });
         getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 40));
 
         labelKode.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelKode.setText("Kode");
         getContentPane().add(labelKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 230, 30));
+
+        textKode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textKodeActionPerformed(evt);
+            }
+        });
         getContentPane().add(textKode, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 230, 40));
+
+        textDeskripsi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textDeskripsiActionPerformed(evt);
+            }
+        });
         getContentPane().add(textDeskripsi, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 230, 240));
 
         labelDeskripsi.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -91,6 +114,12 @@ public class ViewEditPromo extends javax.swing.JFrame {
         labelMinDurasi.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelMinDurasi.setText("Minimal Durasi (Jam)");
         getContentPane().add(labelMinDurasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, 30));
+
+        textMaksimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textMaksimalActionPerformed(evt);
+            }
+        });
         getContentPane().add(textMaksimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 230, 40));
 
         labelJenis.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -106,18 +135,47 @@ public class ViewEditPromo extends javax.swing.JFrame {
         getContentPane().add(labelMaksimal, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 230, 30));
 
         comboxJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Persen", "Nominal" }));
+        comboxJenis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxJenisActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 230, 40));
+
+        textMinDurasi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textMinDurasiActionPerformed(evt);
+            }
+        });
         getContentPane().add(textMinDurasi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, 40));
+
+        textNilai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNilaiActionPerformed(evt);
+            }
+        });
         getContentPane().add(textNilai, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 40));
 
         labelStart.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelStart.setText("Start (DD-MM-YYYY)");
         getContentPane().add(labelStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 230, 30));
+
+        textStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textStartActionPerformed(evt);
+            }
+        });
         getContentPane().add(textStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 230, 40));
 
         labelEnd.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelEnd.setText("End (DD-MM-YYYY)");
         getContentPane().add(labelEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 350, 230, 30));
+
+        textEnd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEndActionPerformed(evt);
+            }
+        });
         getContentPane().add(textEnd, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, 230, 40));
 
         labelStatus.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -125,6 +183,11 @@ public class ViewEditPromo extends javax.swing.JFrame {
         getContentPane().add(labelStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 230, 30));
 
         comboxJenis1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Nonaktif" }));
+        comboxJenis1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxJenis1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxJenis1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 380, 230, 40));
 
         pack();
@@ -133,6 +196,50 @@ public class ViewEditPromo extends javax.swing.JFrame {
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdActionPerformed
+
+    private void textKodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textKodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textKodeActionPerformed
+
+    private void textDeskripsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textDeskripsiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textDeskripsiActionPerformed
+
+    private void textMinDurasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMinDurasiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMinDurasiActionPerformed
+
+    private void comboxJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxJenisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxJenisActionPerformed
+
+    private void textNilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNilaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNilaiActionPerformed
+
+    private void textMaksimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textMaksimalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textMaksimalActionPerformed
+
+    private void textStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textStartActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textStartActionPerformed
+
+    private void textEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEndActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEndActionPerformed
+
+    private void comboxJenis1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxJenis1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxJenis1ActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments

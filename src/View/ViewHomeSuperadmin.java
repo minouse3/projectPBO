@@ -56,14 +56,29 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
 
         buttonCek.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         buttonCek.setText("Cek");
+        buttonCek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCekActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonCek, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 380, 130, 40));
 
         buttonDataPelanggan.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         buttonDataPelanggan.setText("Data Pelanggan");
+        buttonDataPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDataPelangganActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonDataPelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 170, 40));
 
         buttonDataLapangan.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         buttonDataLapangan.setText("Data Lapangan");
+        buttonDataLapangan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDataLapanganActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonDataLapangan, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 170, 40));
 
         buttonDataBooking.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -112,6 +127,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
 
         buttonLogOut.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         buttonLogOut.setText("Log Out");
+        buttonLogOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLogOutActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonLogOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 170, 40));
 
         labelUsername1.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
@@ -120,6 +140,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
         getContentPane().add(labelUsername1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 150, 30));
 
         comboxTanggal.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxTanggal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxTanggalActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxTanggal, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 100, 130, 30));
 
         labelLapanganTersedia.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -133,6 +158,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
         getContentPane().add(labelBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 130, 30));
 
         comboxBulan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxBulan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxBulanActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxBulan, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 170, 130, 30));
 
         labelTahun.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -141,6 +171,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
         getContentPane().add(labelTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 210, 130, 30));
 
         comboxTahun.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxTahunActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxTahun, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 240, 130, 30));
 
         labelJenis.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
@@ -149,6 +184,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
         getContentPane().add(labelJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 280, 130, 30));
 
         comboxJenis.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboxJenis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxJenisActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxJenis, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 130, 30));
 
         buttonBooking.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -158,6 +198,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
         buttonDataPembayaran.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         buttonDataPembayaran.setText(" Data Pembayaran");
         buttonDataPembayaran.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        buttonDataPembayaran.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDataPembayaranActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonDataPembayaran, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 170, 40));
 
         buttonDataAdmin.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -184,6 +229,42 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
     private void buttonDataAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataAdminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonDataAdminActionPerformed
+
+    private void buttonDataPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataPelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDataPelangganActionPerformed
+
+    private void buttonDataLapanganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataLapanganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDataLapanganActionPerformed
+
+    private void buttonDataPembayaranActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataPembayaranActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDataPembayaranActionPerformed
+
+    private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogOutActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLogOutActionPerformed
+
+    private void comboxTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxTanggalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxTanggalActionPerformed
+
+    private void comboxBulanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxBulanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxBulanActionPerformed
+
+    private void comboxTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxTahunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxTahunActionPerformed
+
+    private void comboxJenisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxJenisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxJenisActionPerformed
+
+    private void buttonCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonCekActionPerformed
 
     /**
      * @param args the command line arguments

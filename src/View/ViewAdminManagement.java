@@ -55,6 +55,11 @@ public class ViewAdminManagement extends javax.swing.JFrame {
 
         buttonDelete.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         buttonDelete.setText("Delete");
+        buttonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonDeleteActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 170, 40));
 
         buttonModify.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -68,6 +73,11 @@ public class ViewAdminManagement extends javax.swing.JFrame {
 
         buttonBack.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBackActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 170, 40));
 
         tableDataPromo.setModel(new javax.swing.table.DefaultTableModel(
@@ -95,6 +105,14 @@ public class ViewAdminManagement extends javax.swing.JFrame {
     private void buttonModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModifyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonModifyActionPerformed
+
+    private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonDeleteActionPerformed
+
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonBackActionPerformed
 
     /**
      * @param args the command line arguments

@@ -58,6 +58,11 @@ public class ViewEditUsers extends javax.swing.JFrame {
 
         buttonSave.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         buttonSave.setText("Save");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 170, 40));
 
         buttonCancel.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -72,12 +77,30 @@ public class ViewEditUsers extends javax.swing.JFrame {
         labelId.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelId.setText("ID");
         getContentPane().add(labelId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 230, 30));
+
+        textId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textIdActionPerformed(evt);
+            }
+        });
         getContentPane().add(textId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 230, 40));
 
         labelNama.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelNama.setText("Nama");
         getContentPane().add(labelNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 230, 30));
+
+        textNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNamaActionPerformed(evt);
+            }
+        });
         getContentPane().add(textNama, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 230, 40));
+
+        textUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textUsernameActionPerformed(evt);
+            }
+        });
         getContentPane().add(textUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, 230, 40));
 
         labelUsername.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -87,16 +110,34 @@ public class ViewEditUsers extends javax.swing.JFrame {
         labelEmail.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelEmail.setText("Email");
         getContentPane().add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 230, 30));
+
+        textEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textEmailActionPerformed(evt);
+            }
+        });
         getContentPane().add(textEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 230, 40));
 
         labelPassword.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelPassword.setText("Password");
         getContentPane().add(labelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 230, 30));
+
+        textPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textPasswordActionPerformed(evt);
+            }
+        });
         getContentPane().add(textPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 230, 40));
 
         labelNoHp.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
         labelNoHp.setText("No. HP");
         getContentPane().add(labelNoHp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 230, 30));
+
+        textNoHp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textNoHpActionPerformed(evt);
+            }
+        });
         getContentPane().add(textNoHp, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 230, 40));
 
         labelId6.setFont(new java.awt.Font("sansserif", 1, 15)); // NOI18N
@@ -108,9 +149,19 @@ public class ViewEditUsers extends javax.swing.JFrame {
         getContentPane().add(labelId7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 230, 30));
 
         comboxStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Aktif", "Nonaktif" }));
+        comboxStatus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxStatusActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 230, 40));
 
         comboxRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Superadmin", "Admin" }));
+        comboxRole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxRoleActionPerformed(evt);
+            }
+        });
         getContentPane().add(comboxRole, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 230, 40));
 
         pack();
@@ -119,6 +170,42 @@ public class ViewEditUsers extends javax.swing.JFrame {
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCancelActionPerformed
+
+    private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textIdActionPerformed
+
+    private void textNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNamaActionPerformed
+
+    private void textUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textUsernameActionPerformed
+
+    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textEmailActionPerformed
+
+    private void textPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textPasswordActionPerformed
+
+    private void textNoHpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textNoHpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textNoHpActionPerformed
+
+    private void comboxRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxRoleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxRoleActionPerformed
+
+    private void comboxStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxStatusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxStatusActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments

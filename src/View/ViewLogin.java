@@ -65,6 +65,11 @@ public class ViewLogin extends javax.swing.JFrame {
 
         buttonLogin.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         buttonLogin.setText("LOGIN");
+        buttonLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(buttonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 460, 50));
 
         labelUsernameEmail.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -81,6 +86,10 @@ public class ViewLogin extends javax.swing.JFrame {
     private void textPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textPasswordActionPerformed
+
+    private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonLoginActionPerformed
 
     /**
      * @param args the command line arguments
