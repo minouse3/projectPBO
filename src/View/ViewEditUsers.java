@@ -11,13 +11,25 @@ package View;
 public class ViewEditUsers extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewEditUsers.class.getName());
+    private Controller.ManajemenAdminController controller;
 
     /**
      * Creates new form ViewEditUsers
      */
-    public ViewEditUsers() {
+    public ViewEditUsers(Controller.ManajemenAdminController controller) {
+        this.controller = controller;
         initComponents();
+        textId.setEditable(false);
     }
+    
+    public javax.swing.JTextField getTextId() { return textId; }
+    public javax.swing.JTextField getTextNama() { return textNama; }
+    public javax.swing.JTextField getTextUsername() { return textUsername; }
+    public javax.swing.JTextField getTextEmail() { return textEmail; }
+    public javax.swing.JTextField getTextPassword() { return textPassword; }
+    public javax.swing.JTextField getTextNoHp() { return textNoHp; }
+    public javax.swing.JComboBox<String> getComboxRole() { return comboxRole; }
+    public javax.swing.JComboBox<String> getComboxStatus() { return comboxStatus; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +60,7 @@ public class ViewEditUsers extends javax.swing.JFrame {
         comboxStatus = new javax.swing.JComboBox<>();
         comboxRole = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelEditUsers.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -168,7 +180,7 @@ public class ViewEditUsers extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
@@ -204,7 +216,7 @@ public class ViewEditUsers extends javax.swing.JFrame {
     }//GEN-LAST:event_comboxStatusActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        // TODO add your handling code here:
+        controller.save(this);
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
@@ -229,7 +241,7 @@ public class ViewEditUsers extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ViewEditUsers().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ViewEditUsers(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,12 +11,22 @@ package View;
 public class ViewLogin extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewLogin.class.getName());
+    private Controller.LoginController controller;
 
     /**
      * Creates new form ViewLogin
      */
     public ViewLogin() {
         initComponents();
+        controller = new Controller.LoginController(this);
+    }
+    
+    public javax.swing.JTextField getTextUsernameEmail() {
+        return textUsernameEmail;
+    }
+    
+    public javax.swing.JTextField getTextPassword() {
+        return textPassword;
     }
 
     /**
@@ -88,7 +98,7 @@ public class ViewLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_textPasswordActionPerformed
 
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO add your handling code here:
+        controller.login();
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     /**

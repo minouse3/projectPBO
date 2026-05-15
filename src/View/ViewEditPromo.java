@@ -11,13 +11,27 @@ package View;
 public class ViewEditPromo extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewEditPromo.class.getName());
+    private Controller.PromoController controller;
 
     /**
      * Creates new form ViewEditPromo
      */
-    public ViewEditPromo() {
+    public ViewEditPromo(Controller.PromoController controller) {
+        this.controller = controller;
         initComponents();
+        textId.setEditable(false);
     }
+    
+    public javax.swing.JTextField getTextId() { return textId; }
+    public javax.swing.JTextField getTextKode() { return textKode; }
+    public javax.swing.JTextField getTextNama() { return textDeskripsi; } // In UI it is named textDeskripsi but used for Nama
+    public javax.swing.JTextField getTextMinDurasi() { return textMinDurasi; }
+    public javax.swing.JTextField getTextNilai() { return textNilai; }
+    public javax.swing.JTextField getTextMaksimal() { return textMaksimal; }
+    public javax.swing.JTextField getTextStart() { return textStart; }
+    public javax.swing.JTextField getTextEnd() { return textEnd; }
+    public javax.swing.JComboBox<String> getComboxJenis() { return comboxJenis; }
+    public javax.swing.JComboBox<String> getComboxStatus() { return comboxJenis1; }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,7 +66,7 @@ public class ViewEditPromo extends javax.swing.JFrame {
         labelStatus = new javax.swing.JLabel();
         comboxJenis1 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelEditPromo.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
@@ -194,7 +208,7 @@ public class ViewEditPromo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void textIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textIdActionPerformed
@@ -238,7 +252,7 @@ public class ViewEditPromo extends javax.swing.JFrame {
     }//GEN-LAST:event_comboxJenis1ActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        // TODO add your handling code here:
+        controller.save(this);
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
@@ -263,7 +277,7 @@ public class ViewEditPromo extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new ViewEditPromo().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new ViewEditPromo(null).setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

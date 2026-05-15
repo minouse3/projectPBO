@@ -11,12 +11,18 @@ package View;
 public class ViewAdminManagement extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(ViewAdminManagement.class.getName());
+    private Controller.ManajemenAdminController controller;
 
     /**
      * Creates new form ViewAdminManagement
      */
     public ViewAdminManagement() {
         initComponents();
+        controller = new Controller.ManajemenAdminController(this);
+    }
+    
+    public javax.swing.JTable getTableDataPromo() {
+        return tableDataPromo;
     }
 
     /**
@@ -91,6 +97,11 @@ public class ViewAdminManagement extends javax.swing.JFrame {
                 "ID", "Nama", "Username", "Email", "Password", "No. HP", "Role", "Status"
             }
         ));
+        tableDataPromo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableDataPromoMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableDataPromo);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 770, 460));
@@ -99,20 +110,32 @@ public class ViewAdminManagement extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCreateActionPerformed
-        // TODO add your handling code here:
+        new ViewEditUsers(controller).setVisible(true);
     }//GEN-LAST:event_buttonCreateActionPerformed
 
     private void buttonModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonModifyActionPerformed
-        // TODO add your handling code here:
+        int row = tableDataPromo.getSelectedRow();
+        if (row != -1) {
+            ViewEditUsers v = new ViewEditUsers(controller);
+            controller.isiField(row, v);
+            v.setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Pilih data yang akan diubah");
+        }
     }//GEN-LAST:event_buttonModifyActionPerformed
 
     private void buttonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDeleteActionPerformed
-        // TODO add your handling code here:
+        controller.delete();
     }//GEN-LAST:event_buttonDeleteActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new ViewHomeSuperadmin().setVisible(true);
     }//GEN-LAST:event_buttonBackActionPerformed
+
+    private void tableDataPromoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableDataPromoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableDataPromoMouseClicked
 
     /**
      * @param args the command line arguments

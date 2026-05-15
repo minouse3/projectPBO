@@ -17,6 +17,9 @@ public class ViewHomeAdmin extends javax.swing.JFrame {
      */
     public ViewHomeAdmin() {
         initComponents();
+        if (Model.UserSession.isLoggedIn()) {
+            labelUsername1.setText(Model.UserSession.getUser().getNamaPengguna());
+        }
     }
 
     /**
@@ -50,6 +53,11 @@ public class ViewHomeAdmin extends javax.swing.JFrame {
         buttonBooking = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonCek.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
@@ -119,6 +127,11 @@ public class ViewHomeAdmin extends javax.swing.JFrame {
                 "Nama Lapangan", "Alamat", "Jenis", "Status"
             }
         ));
+        tableLapanganTersedia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableLapanganTersediaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableLapanganTersedia);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 570, 420));
@@ -218,7 +231,9 @@ public class ViewHomeAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDataPembayaranActionPerformed
 
     private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogOutActionPerformed
-        // TODO add your handling code here:
+        Model.UserSession.clearSession();
+        this.dispose();
+        new ViewLogin().setVisible(true);
     }//GEN-LAST:event_buttonLogOutActionPerformed
 
     private void comboxTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxTanggalActionPerformed
@@ -244,6 +259,14 @@ public class ViewHomeAdmin extends javax.swing.JFrame {
     private void buttonBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBookingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonBookingActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formMouseClicked
+
+    private void tableLapanganTersediaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLapanganTersediaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableLapanganTersediaMouseClicked
 
     /**
      * @param args the command line arguments

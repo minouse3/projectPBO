@@ -17,6 +17,9 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
      */
     public ViewHomeSuperadmin() {
         initComponents();
+        if (Model.UserSession.isLoggedIn()) {
+            labelUsername1.setText(Model.UserSession.getUser().getNamaPengguna());
+        }
     }
 
     /**
@@ -121,6 +124,11 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
                 "Nama Lapangan", "Alamat", "Jenis", "Status"
             }
         ));
+        tableLapanganTersedia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableLapanganTersediaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableLapanganTersedia);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 570, 420));
@@ -223,11 +231,13 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDataBookingActionPerformed
 
     private void buttonDataPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataPromoActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new ViewDataPromo().setVisible(true);
     }//GEN-LAST:event_buttonDataPromoActionPerformed
 
     private void buttonDataAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataAdminActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        new ViewAdminManagement().setVisible(true);
     }//GEN-LAST:event_buttonDataAdminActionPerformed
 
     private void buttonDataPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDataPelangganActionPerformed
@@ -243,7 +253,9 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDataPembayaranActionPerformed
 
     private void buttonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogOutActionPerformed
-        // TODO add your handling code here:
+        Model.UserSession.clearSession();
+        this.dispose();
+        new ViewLogin().setVisible(true);
     }//GEN-LAST:event_buttonLogOutActionPerformed
 
     private void comboxTanggalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxTanggalActionPerformed
@@ -265,6 +277,10 @@ public class ViewHomeSuperadmin extends javax.swing.JFrame {
     private void buttonCekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCekActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_buttonCekActionPerformed
+
+    private void tableLapanganTersediaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableLapanganTersediaMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableLapanganTersediaMouseClicked
 
     /**
      * @param args the command line arguments
